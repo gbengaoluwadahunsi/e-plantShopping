@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import { useState} from 'react';
 import './ProductList.css'
 import { addItem } from './CartSlice';
 import CartItem from './CartItem';
@@ -260,6 +260,7 @@ const handlePlantsClick = (e) => {
         ...prevState,
         [product.name]: true,
     }));
+    
 };
 
     return (
@@ -294,9 +295,9 @@ const handlePlantsClick = (e) => {
             {category.plants.map((plant, plantIndex) => (
             <div className="product-card" key={plantIndex}>
                 <img className="product-image" src={plant.image} alt={plant.name} />
-                <div className="product-title">{plant.name}</div>
+                <div style={{display : "flex" , gap : "10px", justifyContent: "center" ,textAlign: "center"}}><div className="product-title">{plant.name}</div> <div>{plant.cost}</div></div>
                 {/*Similarly like the above plant.name show other details like description and cost*/}
-                <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                <button  className= {`product-button ${addedToCart[plant.name]  ? 'disabled' : ''}`} onClick={() => handleAddToCart(plant)}    disabled={addedToCart[plant.name]}>Add to Cart</button>
             </div>
             ))}
         </div>

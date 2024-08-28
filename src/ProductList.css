@@ -163,6 +163,7 @@ body {
 .cart{
     color: white;
     display: flex;
+    position: relative;
 }
 .cart_quantity_count{
     margin-top: 16px;
@@ -171,6 +172,13 @@ body {
     position: absolute;
     font-size: 29px;
 
+}
+
+.cart-quantity{
+    font-size:large;
+    position: absolute;
+    top: 35%;
+    left: 40%;
 }
 .plantname_heading{
    display: flex;
@@ -249,4 +257,11 @@ body {
       .ul div {
         text-align: center; /* Align text to the center */
       }
+
+
   }
+
+  .product-button.disabled {
+    background-color: grey; /* Grey when disabled */
+    cursor: not-allowed;
+}
